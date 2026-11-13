@@ -1,0 +1,57 @@
+.cont {
+  height: 100px;
+  width: 100px;
+  border: 2px solid blue;
+}
+.cont h1 {
+  color: aquamarine;
+}
+.cont h1 h1:hover {
+  color: blue;
+}
+
+.margin-1 {
+  margin: 10px;
+  background-color: red;
+}
+
+.margin-2 {
+  margin: 20px;
+  background-color: red;
+}
+
+.margin-3 {
+  margin: 30px;
+  background-color: red;
+}
+
+.cont {
+  background-color: red;
+  color: goldenrod;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.cont {
+  background-color: pink;
+  color: yellow;
+  display: flex;
+  border-radius: 50px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+button {
+  background-color: red;
+  color: pink;
+  display: flex;
+  border-radius: 2px;
+  font-family: "Courier New", Courier, monospace;
+}
+button:hover {
+  transform: scale(2);
+}
+
+h1:hover {
+  color: brown;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+
+    </ul>
+    <button onclick="addli()">React</button>
+    <button onclick="addli()">CSS </button>
+    <button onclick="addli()">JavaScript</button>
+    <button onclick="addli()">ADD All</button>
+    <button onclick="removeAll()">remove All</button>
+<script>
+    const ul=document.getElementById("list");
+    const li=document.createElement("li");
+    li.textContent="HTML";
+    ul.appendChild(li);
+    //const button=document.querySelector("button");
+    // button.addEventListener("click",()=>{
+    //     li.style.backgroundColor="yellow"
+    // })
+    // function addli(){
+       
+    // const li=document.createElement("li");
+    // li.textContent="CSS";
+    // ul.appendChild(li);
+    // }
+    // function addli(text){
+       
+    // const li=document.createElement("li");
+    // li.textContent=text;
+    // ul.appendChild(li);
+    // }
+    function addli(){
+    const arr=["React","CSS","Javascript"];
+    for(let i=0;i<arr.length;i++){
+    const li=document.createElement("li");
+    li.textContent=arr[i];
+    ul.appendChild(li);
+    }
+    }
+    function removeAll(){
+        li.innerHTML="" // some other process are there
+    }
+    
+    
+</script>
+</body>
+
+</html>

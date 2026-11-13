@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+
+        }
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: azure;
+        }
+
+        #searchbar {
+            padding: 20px;
+        }
+
+        #btn {
+            background-color: rgb(163, 131, 133);
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="filters">
+        <input type="text" id="searchbar">
+        <button id="btn">Add</button>
+    </div>
+    <table border>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Phone number</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script>
+        let students = [{ name: "Aishwarya", email: "aish@gmail.com", phn: 56789 },
+        { name: "poojitha", email: "pooji@gmail.com", phn: 4567890789 },
+        { name: "sai", email: "sai@gmail.com", phn: 56787659 },
+        { name: "srinu", email: "srinu@gmail.com", phn: 5678976 },
+        { name: "vara laxmi", email: "varalaxmi@gmail.com", phn: 5678098769 }
+        ];
+        let tbody = document.getElementById("tbody");
+        tbody.innerHTML = ``;
+
+
+        function createTableRows(data = students) {
+
+            tbody.innerHTML = ``
+            data.forEach((student) => {
+                let tr = document.createElement("tr");
+                tr.dataset.id = student.id
+                tr.innerHTML = `
+<td data-field="name">${student.name}</td>
+<td data-field="email">${student.email}</td>
+<td data-field="phn">${student.phn}</td>
+<td data-field="name">
+<button class="del">Delete</button>
+
+`
+                tbody.appendChild(tr);
+            })
+        }
+            const search = document.getElementById("searchbar");
+            search.addEventListener("input", renderingdata);
+
+            function renderingdata() {
+                let text = search.value;
+                const filteredStudents = students.filter((student) => {
+                    return (
+                        student.name.toLowerCase().includes(text.toLowerCase()) ||
+                        student.email.toLowerCase().includes(text.toLowerCase()) ||
+                        student.phn.toString().includes(text)
+
+                    )
+                })
+                createTableRows(filteredStudents)
+
+            }
+        
+        createTableRows()
+    </script>
+</body>
+
+</html>

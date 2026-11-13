@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+               margin: 0px;
+               padding: 0px;
+            }
+             .cont :nth-child(1){
+                color: violet;
+             }
+             .cont::after{
+                content: "OOOOO";
+                color:blue;
+             }
+             header{
+                height:70px;
+                width:100%;
+                position: sticky;
+                top:0px;
+                background-color:pink;
+               
+                display: flex;
+               justify-content: flex-end;
+                align-items: center;
+                
+             }
+               .child{
+                  background-color: wheat;
+                  border: 1px solid gold;
+                  margin: 5px;
+                  padding: 5px;
+               }
+             .parent{
+               position: relative;
+             }
+             .circle{
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                background: linear-gradient(to right,rgb(0, 255, 94),red);
+                position: relative;
+                
+               
+             }
+             .circhild{
+                height: 75px;
+                width: 75px;
+                position: absolute;
+                left: 60px;
+                top: 60px;
+                border-radius: 50%;
+                background-color: beige;
+             }
+             .box{
+                height:500px;
+                width:500px;
+                background-color: pink;
+                position: relative;
+                border: 2px solid black;
+             }
+             .a{
+                position: absolute;
+
+             }
+             .b{
+                position: absolute;
+                bottom: 0px;
+             }
+             .c{
+                position: absolute;
+                right: 0px;
+             }
+             .d{
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+             }
+             .e{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+             }
+        </style>
+    </head>
+    <body>
+        <header>
+         <div class="child">Home</div>
+          <div class="child">contact</div>
+           <div class="child">others</div>
+
+        </header>
+        
+        <div class="cont">
+            <p>uu</p>
+            <p>aa</p>
+            <p>kk</p>
+            <p>pp</p>
+        </div>
+        <div class="parent">
+        <div class="circle">
+            
+        </div>
+        <div class="circhild"></div>
+        </div>
+        <div class="box">
+            <div class="a">1</div>
+            <div class="b">2</div>
+            <div class="c">3</div>
+            <div class="d">4</div>
+            <div class="e">5</div>
+        </div>
+         <div class="box">
+            <div class="a">1</div>
+            <div class="b">2</div>
+            <div class="c">3</div>
+            <div class="d">4</div>
+            <div class="e">5</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+       .video1{
+        position:relative;
+        height:500px;
+        width:500px;
+        border: 5px green;
+        background: pink;
+        cursor: pointer;
+
+       }
+       .video1 video{
+        height:100%;
+        width:100%;
+       position: absolute;
+       object-fit: cover ; 
+       }
+       .child{
+        position:absolute;
+        bottom:20px;
+        color:blueviolet;
+        font-size: x-large;
+        left: 40px; 
+        display: none;
+       }
+       .video1:hover .child{
+        display: block;
+       }
+   </style>
+</head>
+<body>
+    <div class="video1">
+        <video controls>
+         <source src="https://www.w3schools.com/tags/movie.mp4">
+         
+        </video>
+<div class="child">hellooooooooooo</div>
+    </div>
+</body>
+</html>

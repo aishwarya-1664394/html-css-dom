@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input id="input-id" type="Number" min="1" max="9">
+        <input id="color-id" type="text">
+        <input type="submit" value="submit" id="change_button">
+        <input type="reset" value="Reset" id="reset_button">
+    </form>
+    <script>
+        let body=document.querySelector("body");
+        let gridcontainer=document.createElement("div")
+        body.appendChild(gridcontainer);
+       gridcontainer.id="grid-container"
+        gridcontainer.style.display="grid";
+        gridcontainer.style.gridTemplateColumns="200px 200px 200px"
+        for(let i=1;i<=9;i++){
+            let box=document.createElement("div");
+            gridcontainer.appendChild(box);
+            box.id=i
+            box.style.width="200px";
+            box.style.height="200px";
+            box.style.border="2px solid black";
+            box.style.margin="3px"
+
+        }
+       let form=document.querySelector("form");
+       form.addEventListener("submit",(e)=>{
+           e.preventDefault();
+           let boxid=form.elements[0].value;
+           let boxcol=form.elements[1].value;
+        let box = document.getElementById(boxid);
+           box.style.backgroundColor=boxcol;
+           
+       })
+       form.addEventListener("reset",(e)=>{
+           e.preventDefault();
+           let boxid=form.elements[0].value;
+           
+        let box = document.getElementById(boxid);
+           box.style.backgroundColor="transparent";
+           console.log(boxid,boxcol)
+       })
+
+
+    </script>
+</body>
+</html>

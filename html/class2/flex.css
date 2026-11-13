@@ -1,0 +1,35 @@
+.container{
+    background-color: rgb(204,204,204);
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+   
+}
+.item1{
+    background-color: white;
+    width: 80%;
+    border-radius: 8px;
+    border: 2px solid black;
+    justify-content: center;
+    margin:auto;
+    
+}
+.item2{
+    background-color: white;
+    width: 50%;
+    height: 80%;
+    border-radius: 8px;
+    border: 2px solid black;
+    justify-content: center;
+    margin:auto;
+   
+    
+}
+.video{
+    align-self: center;
+    justify-self: center;
+    margin-left: auto;
+    padding: auto;
+    border-radius: 8px;
+
+}

@@ -1,0 +1,23 @@
+// $primary-color: yellow;
+// $size: 50px;
+// $paddingSize: 25px;
+// .card{
+//   color: $primary-color;
+//     font-size: $size;
+// }
+// #box{
+//     background-color: $primary-color;
+//     padding: $paddingSize;
+//  }
+$primary: pink;
+$secondary: blue;
+$ternary: skyblue;
+$font-family: "Arial",sans-sarif;
+$base-size: 40px;
+$rounded: true;
+$theme:(
+    primary: $primary,
+    secondary: $secondary,
+    ternary: $ternary
+
+)

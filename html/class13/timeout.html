@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>STOP</button>
+    <h3>20</h3>
+    <textarea id="text"></textarea>
+    <p>ertyuiolkgfdxcvbnjiplkjhgfdsw4567890pkjhvcsw</p>
+    <script>
+//        let timer= setTimeout(()=>{
+// alert("ERROR 404")
+//         },10000);
+//       let btn=document.querySelector("button");
+//       btn.addEventListener("click",()=>{
+//         clearTimeout(timer)
+//       })
+
+const h3=document.querySelector("h3");
+let count=20;
+let timer=setInterval(()=>{
+    count--;
+    h3.textContent=count;
+    if(h3.textContent==0){
+    clearInterval(timer);
+    let enteredtextId=document.getElementById("text");
+    let enteredtext=enteredtextId.value;
+    let pid=document.querySelector("p");
+    let text=pid.textContent;
+    if(text===enteredtext){
+        let cr=document.createElement("h1");
+        let body=document.querySelector("body");
+        body.appendChild(cr);
+        cr.textContent="Winner";
+    }
+    else{
+        let cr=document.createElement("h1");
+        let body=document.querySelector("body");
+        body.appendChild(cr);
+        cr.textContent="BETTER LUCK NEXT TIME";
+    }
+}
+   
+},1000);
+ 
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.container{
+    background-color: blueviolet;
+    
+    display: flex;
+   
+    justify-content: start;
+    align-items: center;
+    height: 750px;
+    width: 750px;
+}
+.w{
+    background-color: beige;
+height: 100px;
+width:  100px;
+margin: 4px;
+   justify-content: center;
+   text-align: center;
+  align-self: center;
+  padding-top: 20px;
+  
+  font-size: xx-large;
+
+}

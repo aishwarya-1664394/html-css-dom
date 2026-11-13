@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            width:100vw;
+            justify-content: center;
+           }
+           .cont{
+            height: 80%;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+           }
+           .sub-cont{
+            height: 50%;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid greenyellow;
+           }
+           button{
+            background-color: brown;
+            color: white;
+           }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="sub-cont">
+            <button>Submit</button>
+        </div>
+    </div>
+    <script>
+        let body=document.querySelector("body");
+        let cont=document.querySelector(".cont");
+        let subCont=document.querySelector(".sub-cont");
+        let btn=document.querySelector("button");
+        body.addEventListener("click",(e)=>{
+            console.log("body Clicked")
+        });
+        cont.addEventListener("click",(e)=>{
+            console.log("cont Clicked")
+        });
+        subCont.addEventListener("click",(e)=>{
+            console.log("sub Clicked");
+            
+        })
+        btn.addEventListener("click",(e)=>{
+            console.log("btn Clicked");
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+        })
+        btn.addEventListener("click",(e)=>{
+            console.log("second Time clicked")
+        })
+    </script>
+</body>
+</html>

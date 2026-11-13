@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Action</th>
+        </tr>
+    </table>
+    <script>
+        let form=document.querySelector("form");
+        let table=document.querySelector("table");
+        let fragment=document.createDocumentFragment()
+        for(let i=0;i<100;i++){
+            createRow(`Aishwarya${i+1}`,`${i+1}`);
+            table.appendChild(fragment)
+        }
+        table.addEventListener("click",(e)=>{
+            if(e.target.textContent=="Del"){
+            e.target.closest("tr").remove()
+            }
+        })
+        function createRow(name,phn){
+            let tr=document.createElement("tr")
+            let tdname=document.createElement("td");
+            let tdphn=document.createElement("td");
+            let tdbtn=document.createElement("td");
+            let btn=document.createElement("button");
+            btn.textContent="Del";
+            tdname.textContent=name;
+            tdphn.textContent=phn;
+            tdbtn.appendChild(btn);
+            tr.append(tdname,tdphn,tdbtn);
+            fragment.appendChild(tr)
+        }
+    </script>
+</body>
+</html>

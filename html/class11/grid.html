@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <div id="box"></div>
+    <script>
+        let body=document.querySelector("body");
+        body.style.margin="0px";
+        body.style.padding="0px";
+        body.style.display="flex";
+        body.style.position="relative";
+        body.style.top="200px"
+        body.style.justifyContent="center";
+        body.style.alignItems="center";
+
+        let box=document.getElementById("box");
+        box.style.border="2px solid blue";
+        box.style.height="500px";
+        box.style.width="500px";
+        box.style.display="grid";
+        box.style.gridTemplateColumns="repeat(auto-fit, minmax(50px, 1fr))"
+        box.style.gap="2px"
+        box.style.backgroundColor="black"
+        let newBox;
+        
+        for(let i=0;i<=100;i++){
+            newBox=document.createElement("div");
+            box.appendChild(newBox);
+            newBox.id="newBox"
+            newBox.style.border="2px solid black";
+            newBox.style.backgroundColor="grey";
+            newBox.style.borderRadius="10px";
+        }
+    let b1=document.querySelectorAll("#newBox")
+    //newBox.addEventListener("mouseover",colorfunction)
+    for(let i=0;i<b1.length;i++){
+         b1[i].addEventListener("mouseover",colorfunction)
+        function colorfunction()
+        {
+                const red=Math.floor(Math.random()*256);
+                const green=Math.floor(Math.random()*256);
+                const blue=Math.floor(Math.random()*256);
+               b1[i].style.backgroundColor=`rgb(${red},${green},${blue})`;
+               b1[i].style.transitions
+                
+         }
+         b1[i].addEventListener("mouseout",(e)=>{
+            let timer=setTimeout(()=>{
+                e.target.style.backgroundColor="grey"
+            },1000)
+         })
+
+    }
+        console.dir(body)
+    </script>
+</body>
+</html>

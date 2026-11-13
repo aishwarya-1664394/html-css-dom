@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+        }
+        .box{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            width: 300px;
+            border: 2px solid black;
+            color:blue;
+        }
+        .active{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    
+      <script>
+        let body=document.querySelector("body");
+        let boxesNum=10;
+        let activeno=0;
+        body.addEventListener("keydown",(e)=>{
+            console.log("key down",e.key);
+            let b=document.querySelectorAll(".box")
+            console.dir(b)
+            if(e.key=="ArrowDown"){
+            b[activeno].classList.remove("active");
+           activeno++;
+                if(activeno==boxesNum){
+            activeno=0;
+                }
+           
+           b[activeno].classList.add("active");
+           
+        
+            }
+            if(e.key=="Backspace"){
+                b[activeno].remove()
+            }
+            if(e.ctrlKey && e.key=="a"){
+                for(let i=0;i<boxesNum;i++){
+                    b[i].classList.add("active")
+                }
+            }
+        })
+        body.addEventListener("keyup",(e)=>{
+            let b=document.querySelectorAll(".box")
+            console.log("key up",e.key);
+          if(e.key=="ArrowUp"){
+            b[activeno].classList.remove("active");
+          
+          activeno--;
+          if(activeno<0){
+            activeno=boxesNum-1;
+          }
+          b[activeno].classList.add("active");
+
+        }
+
+
+
+        })
+        for(let i=0;i<boxesNum;i++){
+            let box=document.createElement("div");
+            box.textContent=i
+            box.classList.add("box");
+            box.style.display="flex";
+            box.style.justifyContent="center";
+            box.style.alignItems="center";
+            box.style.height="150px";
+            box.style.width="300px";
+            box.style.border="2px solid black";
+            box.style.color="blue"
+            body.appendChild(box);
+            if(i==0){
+                box.classList.add("active");
+            }
+        }
+      </script>
+</body>
+
+
+</html>

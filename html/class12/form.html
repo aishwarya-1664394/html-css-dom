@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+       Name: <input type="text" required>
+       Email: <input type="email" name="email" required>
+       phn: <input type="Number" required>
+      <input type="submit" value="Add">
+    </form>
+   <table id="table">
+    
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>phone</th>
+            <th>Action</th>
+        </tr>
+   
+    
+   </table>
+    <script>
+        const form=document.getElementById("form");
+       // const ul=document.querySelector("ul")
+        form.addEventListener("submit",(e)=>{
+           e.preventDefault();
+           const thname=document.createElement("td");
+           const themail=document.createElement("td");
+           const thphn=document.createElement("td");
+          // const thbtn=document.createElement("td");
+        const btn=document.createElement("button");
+        btn.textContent="remove row";
+         btn.type = "button";
+           const tr=document.createElement("tr");
+           const table=document.getElementById("table");
+           //thbtn.appendChild(btn)
+           tr.append(thname,themail,thphn,btn)
+           table.appendChild(tr);
+           thname.textContent=e.target[0].value;
+            themail.textContent=e.target[1].value;
+            thphn.textContent=e.target[2].value;
+            form.reset()
+           btn.addEventListener("click",(e)=>{
+             tr.remove();
+           })
+            
+        })
+    </script>
+</body>
+</html>

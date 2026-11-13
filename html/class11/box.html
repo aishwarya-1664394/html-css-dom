@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #box{
+            width: 200px;
+            height:200px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+         </div>
+         <script>
+            let box=document.getElementById("box");
+
+            box.addEventListener("click",colorfunction);
+           let colors=["red","blue","pink","orange","purple","green","yellow"]
+            // function colorfunction(){
+            //    let num = Math.floor(Math.random() * colors.length);
+            //   box.style.backgroundColor=colors[num];
+            // }
+            function colorfunction(){
+                const red=Math.floor(Math.random()*256);
+                 const green=Math.floor(Math.random()*256);
+                  const blue=Math.floor(Math.random()*256);
+                  box.style.backgroundColor=`rgb(${red},${green},${blue})`
+                
+            }
+
+         </script>
+</body>
+</html>

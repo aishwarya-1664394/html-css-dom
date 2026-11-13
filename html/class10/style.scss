@@ -1,0 +1,49 @@
+.cont{
+    height: 100px;
+    width: 100px;
+    border: 2px solid blue;
+
+    
+    h1{
+        color:aquamarine;
+    h1:hover{
+        color:blue;
+    }
+}
+}
+@for $i from 1 through 3{
+    .margin-#{$i}{
+        margin:$i * 10px;
+        background-color: red;
+    }
+}
+@mixin a{
+    background-color: red;
+    color: goldenrod;
+    font-family: 'Courier New', Courier, monospace;
+}
+.cont{
+    @include a
+}
+
+@mixin a($color,$textcolor:yellow,$border:50px){
+    background-color: $color;
+    color: $textcolor;
+    display: flex;
+    border-radius:$border;
+
+    font-family: 'Courier New', Courier, monospace;
+}
+.cont{
+    @include a(pink);
+}
+button{
+@include a(red,pink,2px);
+&:hover{
+ transform: scale(2);
+}
+} 
+h1:hover{
+color:brown;
+
+}
