@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+       Name: <input id="name" type="text">
+       age: <input id="age" type="number">
+       <input type="submit">
+       
+
+    </form>
+    <ol id="list">
+
+    </ol>
+    <script>
+       let form=document.getElementById("form");
+      let name=document.getElementById("name");
+     let age=document.getElementById("age");
+     let ol=document.getElementById("list")
+     let nameval=sessionStorage.getItem("name");
+      let ageval=sessionStorage.getItem("age");
+      
+      let arr=JSON.parse(localStorage.getItem("names")) || [];
+      if(arr){
+      arr.forEach((name) => {
+        addItem(name)
+        
+      });
+    }
+      
+      
+      if(nameval){
+        name.value=nameval
+      }
+      if(ageval){
+        age.value=ageval
+      }
+
+     name.addEventListener("input",(e)=>{
+        sessionStorage.setItem("name",e.target.value)
+        
+     })
+     age.addEventListener("input",(e)=>{
+        sessionStorage.setItem("age",e.target.value);
+       
+     })
+    form.addEventListener("submit",(e)=>{
+        e.preventDefault();
+       let currentData={
+            name:name.value,
+            age:age.value,
+        }
+        arr.push(currentData);
+       sessionStorage.clear();
+        console.log(arr)
+       addItem(currentData);
+        localStorage.setItem("names",JSON.stringify(arr))
+        form.reset()
+    });
+    function addItem(data){
+        let span=document.createElement("span")
+        let li=document.createElement("li");
+        span.textContent=`${data.name} ${data.age}`;
+        li.appendChild(span);
+        ol.appendChild(li)
+
+    }
+
+    </script>
+</body>
+</html>

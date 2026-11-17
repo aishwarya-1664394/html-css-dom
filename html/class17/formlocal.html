@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+    </style>
+</head>
+<body>
+ 
+    <form id="form">
+        Name: <input type="text" id="name">
+        email: <input type="email" id="email">
+        password: <input type="password" id="pass">
+        <input type="submit" value="Submit">
+    </form>
+    <ol id="list">
+        
+    </ol>
+    <script>
+        let users=[];
+         let form=document.getElementById("form");
+         let name=document.getElementById("name");
+         let email=document.getElementById("email");
+         let pass=document.getElementById("pass");
+          name.addEventListener("input",(e)=>{
+
+            sessionStorage.setItem("name",e.target.value)
+          })
+          email.addEventListener("input",(e)=>{
+
+            sessionStorage.setItem("email",e.target.value)
+          })
+          pass.addEventListener("input",(e)=>{
+
+            sessionStorage.setItem("pass",e.target.value)
+          })
+        
+        let fullname=sessionStorage.getItem("name");
+        let mail=sessionStorage.getItem("email");
+        let password=sessionStorage.getItem("pass");
+        // if session storage has name as key
+        if(fullname){
+            name.value=fullname
+        }
+        if(mail){
+            email.value=mail
+        }
+        if(password){
+            pass.value=password
+        }
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let f=e.target[0].value.split(" ");
+             let em=e.target[1].value;
+             let pa=e.target[2].value;
+              if(f.length!=2){
+                alert("enetr full name");
+                return
+              }
+              if(!em.endsWith("@gmail.com")){
+                alert("enter valid gmail");
+                return
+              }
+              if(pa.length<8){
+                alert("8 character password");
+                return;
+              }
+              let small=false;
+              let great=false;
+              let special=false;
+              let num=false;
+              for(let i=0;i<pa.length;i++){
+                if(pa[i]>="a" && pa[i]<="z"){
+                    small=true;
+                }
+                else if(pa[i]>="A" && pa[i]<="Z"){
+                    great=true;
+                }
+                else if("!@#$%^&*".includes(pa[i])){
+                    special=true;
+                }
+                else if(pa[i]>=0 && pa[i]<=9){
+                    num=true;
+                }
+              }
+              if(small==false || great==false || special==false || num==false){
+                alert("password")
+                return
+              }
+             // console.log(password)
+             currentuser={
+                name: e.target[0].value,
+                email: em,
+                pass: pa,
+             }
+             users.push(currentuser);
+             console.log(currentuser)
+             addItol(currentuser);
+             localStorage.setItem("users",JSON.stringify(users))
+             e.target.reset();
+             sessionStorage.clear()
+        })
+        let ol=document.getElementById("list")
+        function addItol(data){
+            let span=document.createElement("span");
+            let li=document.createElement("li");
+            span.textContent=`
+            ${data.name} ${data.email} ${data.pass}`;
+            li.appendChild(span);
+            ol.appendChild(li)
+
+        }
+    </script>
+</body>
+</html>
